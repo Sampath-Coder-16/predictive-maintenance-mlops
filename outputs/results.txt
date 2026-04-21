@@ -1,0 +1,9 @@
+Model: LightGBM (LGBMClassifier)
+PR-AUC: 0.955 (Initial) / 0.956 (Optimized)
+ROC-AUC: 0.99
+Dataset: NASA CMAPSS (FD001)
+Split Strategy: Group-based splitting by engine_id (ensures no data leakage from the same engine between train/test).
+Feature Engineering Applied:
+Rolling Mean: 5-cycle window mean for all sensors to capture short-term degradation trends.
+Lag Features: 1-cycle lag to capture the immediate change in sensor values.
+Targeting: Binary classification for failure within 30 cycles.
