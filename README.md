@@ -15,34 +15,35 @@ Production-grade machine learning system to predict equipment failure using time
 NASA CMAPSS Turbofan Engine Dataset
 
 ## Project Structure
-predictive-maintenance-mlops/
-│
-├── README.md
-├── requirements.txt
-├── Dockerfile
-│
-├── data/
-│   └── sample_data.csv   (optional small sample)
-│
-├── src/
-│   ├── train.py
-│   ├── features.py
-│   └── evaluate.py
-│
-├── api/
-│   └── app.py
-│
-├── artifacts/
-│   └── model.pkl   (uploaded file)
-│
-├── notebooks/
-│   └── ZAALIMA_PROJECT.ipynb    ( notebook)
-│
-├── outputs/
-│   ├── pr_auc_score.png
-│   ├── shap_summary.png
-│   └── model_results.txt
-│
-└── images/
+README.md
+requirements.txt
+Dockerfile
+
+src/train.py
+api/app.py
+
+artifacts/model.pkl
+outputs/results.txt
+
+
+
+
+
+ Results
+Model: LightGBM (LGBMClassifier)
+PR-AUC: 0.955 (Initial) / 0.956 (Optimized)
+ROC-AUC: 0.99
+Dataset: NASA CMAPSS (FD001)
+Split Strategy: Group-based splitting by engine_id (ensures no data leakage from the same engine between train/test).
+Feature Engineering Applied:
+Rolling Mean: 5-cycle window mean for all sensors to capture short-term degradation trends.
+Lag Features: 1-cycle lag to capture the immediate change in sensor values.
+Targeting: Binary classification for failure within 30 cycles.
+
+
+Run
+pip install -r requirements.txt  
+python src/train.py  
+python api/app.py
     ├── architecture.png
     ├── workflow.png
