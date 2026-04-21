@@ -15,3 +15,34 @@ Production-grade machine learning system to predict equipment failure using time
 NASA CMAPSS Turbofan Engine Dataset
 
 ## Project Structure
+predictive-maintenance-mlops/
+│
+├── README.md
+├── requirements.txt
+├── Dockerfile
+│
+├── data/
+│   └── sample_data.csv   (optional small sample)
+│
+├── src/
+│   ├── train.py
+│   ├── features.py
+│   └── evaluate.py
+│
+├── api/
+│   └── app.py
+│
+├── artifacts/
+│   └── model.pkl   (uploaded file)
+│
+├── notebooks/
+│   └── ZAALIMA_PROJECT.ipynb    ( notebook)
+│
+├── outputs/
+│   ├── pr_auc_score.png
+│   ├── shap_summary.png
+│   └── model_results.txt
+│
+└── images/
+    ├── architecture.png
+    ├── workflow.png
